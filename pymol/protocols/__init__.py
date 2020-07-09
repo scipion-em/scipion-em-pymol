@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # **************************************************************************
 # *
 # * Authors:     David Herreros Calero (dherreros@cnb.csic.es)
@@ -24,3 +23,5 @@
 # *  e-mail address 'scipion@cnb.csic.es'
 # *
 # **************************************************************************
+
+from .protocol_local_optimize_structure import ProtLocalOptimizeStruct

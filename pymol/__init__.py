@@ -50,20 +50,23 @@ class Plugin(pwem.Plugin):
 
     @classmethod
     def runPymolScript(cls, protocol, script):
-        pymolCall = '%s %s && pymol' % (cls.getCondaActivationCmd(), cls.getDeepFinderEnvActivation())
-        protocol.runJob(pymolCall, script, env=cls.getEnviron(), cwd=cwd)
+        pymolCall = '%s %s && %s/pymol-build/bin/pymol -cq' % (cls.getCondaActivationCmd(),
+                                                               cls.getPymolActivation(), cls.getHome())
+        protocol.runJob(pymolCall, script)
 
     @classmethod
     def defineBinaries(cls, env):
         SW_EM = env.getEmFolder()
 
         installationCmd = cls.getCondaActivationCmd()
-        installationCmd += 'conda create -y -n pymol%s && ' % V2_4_0
-        installationCmd += 'pip install pyqt5 Pmw && conda install -c openbabel openbabel -y && '
+        installationCmd += 'conda create -y -n pymol%s python=3.7 && ' % V2_4_0
+        installationCmd += 'conda activate pymol%s && ' % V2_4_0
+        installationCmd += 'conda install -c anaconda pyqt -y && conda install -c conda-forge pmw -y && '
+        installationCmd += 'conda install -c openbabel openbabel -y && '
         installationCmd += 'cd .. && wget -N https://github.com/rcsb/mmtf-cpp/archive/7c74b18.tar.gz && '
         installationCmd += 'tar -xf 7c74b18.tar.gz && mv pymol-open-source-95a44ada8bacfe345905a5df0a70376eb1b455b1 pymol && '
         installationCmd += 'mv mmtf-cpp*/include/mmtf* pymol/include/ && '
-        installationCmd += 'cd pymol && python3 setup.py build install --home=%s/pymol/pymol-build && ' % SW_EM
+        installationCmd += 'cd pymol && python setup.py build install --home=%s/pymol/pymol-build && ' % SW_EM
         installationCmd += 'touch pymol_installed'
         pymol240_commands = [(installationCmd, "%s/pymol/pymol_installed" % SW_EM)]
 
