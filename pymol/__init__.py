@@ -60,7 +60,7 @@ class Plugin(pwem.Plugin):
         installationCmd = cls.getCondaActivationCmd()
         installationCmd += 'conda create -y -n pymol%s && ' % V2_4_0
         installationCmd += 'pip install pyqt5 Pmw && conda install -c openbabel openbabel -y && '
-        installationCmd += 'cd .. && wget https://github.com/rcsb/mmtf-cpp/archive/7c74b18.tar.gz && '
+        installationCmd += 'cd .. && wget -N https://github.com/rcsb/mmtf-cpp/archive/7c74b18.tar.gz && '
         installationCmd += 'tar -xf 7c74b18.tar.gz && mv pymol-open-source-95a44ada8bacfe345905a5df0a70376eb1b455b1 pymol && '
         installationCmd += 'mv mmtf-cpp*/include/mmtf* pymol/include/ && '
         installationCmd += 'cd pymol && python3 setup.py build install --home=%s/pymol/pymol-build && ' % SW_EM
