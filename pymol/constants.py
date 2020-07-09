@@ -1,8 +1,8 @@
 # **************************************************************************
 # *
-# * Authors:     you (you@yourinstitution.email)
+# * Authors:     David Herreros Calero (dherreros@cnb.csic.es)
 # *
-# * your institution
+# * Unidad de  Bioinformatica of Centro Nacional de Biotecnologia , CSIC
 # *
 # * This program is free software; you can redistribute it and/or modify
 # * it under the terms of the GNU General Public License as published by
@@ -24,11 +24,7 @@
 # *
 # **************************************************************************
 
-import pwem
+PYMOL_HOME = 'PYMOL_HOME'
 
-_logo = "icon.png"
-_references = ['you2019']
-
-
-class Plugin(pwem.Plugin):
-    pass
+# Supported versions
+V2_4_0 = '2.4.0'
