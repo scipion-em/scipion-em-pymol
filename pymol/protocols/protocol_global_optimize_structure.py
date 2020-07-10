@@ -100,7 +100,14 @@ class ProtGlobalOptimizeStruct(ProtAnalysis3D):
 
     # --------------------------- INFO functions -----------------------------------
     def _summary(self):
-        pass
+        summary = []
+        summary.append("Input atomic structure: %s"
+                       % self.inputPDB.get().getFileName())
+        if self.getOutputsSize() >= 1:
+            summary.append("Minimized structure: %s" % self.outputPDB.getFileName())
+        else:
+            summary.append("Minimized structure not ready yet.")
+        return summary
 
     def _methods(self):
         pass
