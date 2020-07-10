@@ -110,4 +110,16 @@ class ProtGlobalOptimizeStruct(ProtAnalysis3D):
         return summary
 
     def _methods(self):
-        pass
+        methodsMsgs = []
+        if self.getOutputsSize() >= 1:
+            msg = ("Minimized structure: %s\n" % self.outputPDB.getFileName())
+            msg += "Force Field: %s\n" % forceFieldList[self.forceField.get()]
+            msg += "Minimization steps: %d\n" % self.nSteps.get()
+            msg += "Minimization method: %s\n" % methodList[self.method.get()]
+            methodsMsgs.append(msg)
+        else:
+            methodsMsgs.append("Minimized structure not ready yet.")
+            methodsMsgs.append("Force Field: %s" % forceFieldList[self.forceField.get()])
+            methodsMsgs.append("Minimization steps: %d" % self.nSteps.get())
+            methodsMsgs.append("Minimization method: %s" % methodList[self.method.get()])
+        return methodsMsgs
