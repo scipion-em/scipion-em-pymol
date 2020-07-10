@@ -63,7 +63,7 @@ class ProtGlobalOptimizeStruct(ProtAnalysis3D):
         form.addParam('forceField', params.EnumParam,
                       choices=['GAFF', 'MMFF94s', 'MMFF94', 'UFF', 'Ghemical'], default=1,
                       label='Force field',
-                      experLevel=params.LEVEL_ADVANCED,
+                      expertLevel=params.LEVEL_ADVANCED,
                       help='The forcefield used to compute the Internal Energy.')
 
     # --------------------------- STEPS functions ------------------------------
