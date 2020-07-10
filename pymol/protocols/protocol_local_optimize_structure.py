@@ -110,7 +110,7 @@ class ProtLocalOptimizeStruct(ProtAnalysis3D):
             msg = ("Minimized structure: %s\n" % self.outputPDB.getFileName())
             msg += "Force Field: %s\n" % forceFieldList[self.forceField.get()]
             msg += "Minimization steps: %d\n" % self.nSteps.get()
-            msg += "Minimization method: %s\n" % methodList[self.method.get()]
+            msg += "Minimization method: %s" % methodList[self.method.get()]
             methodsMsgs.append(msg)
         else:
             methodsMsgs.append("Minimized structure not ready yet.")
