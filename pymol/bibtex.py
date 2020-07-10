@@ -24,3 +24,18 @@
 # *  e-mail address 'scipion@cnb.csic.es'
 # *
 # **************************************************************************
+
+"""
+@article{PYMOL,
+title = "The PyMOL Molecular Graphics System, Version 2.4",
+journal = "...",
+volume = "...",
+number = ".",
+pages = ".",
+year = "2015",
+issn = ".",
+doi = ".",
+url = "https://pymol.org",
+author = "Schrodinger, LLC.",
+}
+"""

@@ -28,7 +28,7 @@ import pwem
 from .constants import PYMOL_HOME, V2_4_0
 
 _logo = "icon.png"
-_references = ['you2019']
+_references = ['PYMOL']
 
 
 class Plugin(pwem.Plugin):
