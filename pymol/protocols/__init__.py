@@ -25,3 +25,4 @@
 # **************************************************************************
 
 from .protocol_local_optimize_structure import ProtLocalOptimizeStruct
+from .protocol_global_optimize_structure import ProtGlobalOptimizeStruct
