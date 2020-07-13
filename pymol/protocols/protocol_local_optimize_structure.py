@@ -59,7 +59,9 @@ class ProtLocalOptimizeStruct(ProtAnalysis3D):
                       choices=['GAFF', 'MMFF94s', 'MMFF94', 'UFF', 'Ghemical'], default=1,
                       label='Force field',
                       expertLevel=params.LEVEL_ADVANCED,
-                      help='The forcefield used to compute the Internal Energy.')
+                      help='The forcefield used to compute the Internal Energy.\n'
+                           'More information about the force fields avalaible can be found '
+                           'here: https://open-babel.readthedocs.io/en/latest/Forcefields/Overview.html')
 
     # --------------------------- STEPS functions ------------------------------
     def _insertAllSteps(self):
@@ -77,7 +79,7 @@ class ProtLocalOptimizeStruct(ProtAnalysis3D):
 
     # --------------------------- UTILS functions ------------------------------
     def writeScript(self):
-        script = self._getTmpPath('pymol_optimize.pml')
+        script = self._getExtraPath('pymol_optimize.pml')
         forceField = forceFieldList[self.forceField.get()]
         method = methodList[self.method.get()]
         nSteps = self.nSteps.get()
